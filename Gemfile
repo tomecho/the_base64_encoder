@@ -33,5 +33,10 @@ gem 'pry'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group 'production' do
+  gem 'activerecord-jdbcpostgresql-adapter' # heroku needs this, but it isnt used
+end
 
-gem 'activerecord-jdbcpostgresql-adapter' # heroku needs this, but it isnt used
+group 'development' do
+  gem 'activerecord-jdbcsqlite3-adapter'
+end
